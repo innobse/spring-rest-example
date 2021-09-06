@@ -1,0 +1,29 @@
+### СОЗДАНИЕ
+POST http://localhost:8080/api/v1/post
+Content-Type: application/json
+
+{
+  "name": "Пост 6",
+  "text": "Тест"
+}
+
+### ОБНОВЛЕНИЕ
+PUT http://localhost:8080/api/v1/post/1588154704
+Content-Type: application/json
+
+{
+  "name": "Пост 1 отредактировано",
+  "text": "Текст новый"
+}
+
+### ПОЛУЧЕНИЕ ВСЕХ
+GET http://localhost:8080/api/v1/post
+Content-Type: application/json
+
+###
+GET http://localhost:8080/api/v1/post/3
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080/api/v1/post/1588154704
+Content-Type: application/json
