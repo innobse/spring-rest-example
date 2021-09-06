@@ -1,6 +1,7 @@
 package ru.bse71.learnup.spring.rest.controllers.api.v1;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.bse71.learnup.spring.rest.dto.PostDto;
@@ -11,6 +12,9 @@ import ru.bse71.learnup.spring.rest.services.PostService;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 /**
  * Created by bse71
@@ -37,7 +41,19 @@ public class PostController {
         final Collection<Post> allPosts = service.getAllPosts();
         final List<PostDto> result = new ArrayList<>(allPosts.size());
         for (Post post : allPosts) {
-            result.add(mapper.toDto(post));
+            final PostDto postDto = mapper.toDto(post);
+            postDto.add(
+                    //  1 способ (ручная установка)
+//                    Link.of("http://localhost:8080/api/v1/post/" + post.getId()));
+
+                    //  2 способ (маппинг контроллера + ручной маппинг метода)
+//                    linkTo(PostController.class).slash(post.getId()).withSelfRel());
+
+                    //  3 способ (маппинг конкретного метода)
+                    linkTo(methodOn(PostController.class)
+                            .getPost(post.getId())).withSelfRel());
+
+            result.add(postDto);
         }
         return result;
     }

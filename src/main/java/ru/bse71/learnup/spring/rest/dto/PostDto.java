@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.hateoas.RepresentationModel;
 import ru.bse71.learnup.spring.rest.model.Comment;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostDto {
+public class PostDto extends RepresentationModel<PostDto> {
 
     @JsonProperty
     private Integer id;
