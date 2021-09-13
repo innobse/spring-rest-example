@@ -31,5 +31,8 @@ public class PostDto {
     private String text;
 
     @JsonProperty
+    private String author;
+
+    @JsonProperty
     private List<Comment> comments;
 }

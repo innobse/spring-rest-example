@@ -1,5 +1,10 @@
 package ru.bse71.learnup.spring.rest.util;
 
+import ru.bse71.learnup.spring.rest.model.Comment;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by bse71
  * Date: 02.09.2021
@@ -17,5 +22,13 @@ public class PostUtils {
 
     public static String generateCommentText() {
         return DEFAULT_COMMENT;
+    }
+
+    public static List<Comment> generateCommentsList() {
+        List<Comment> comments = new ArrayList<>(3);
+        comments.add(new Comment(DEFAULT_COMMENT));
+        comments.add(new Comment(DEFAULT_COMMENT));
+        comments.add(new Comment(DEFAULT_COMMENT));
+        return comments;
     }
 }

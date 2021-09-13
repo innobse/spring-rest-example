@@ -1,12 +1,16 @@
 package ru.bse71.learnup.spring.rest.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import ru.bse71.learnup.spring.rest.dto.PostDto;
 import ru.bse71.learnup.spring.rest.model.Comment;
 import ru.bse71.learnup.spring.rest.model.Post;
 import ru.bse71.learnup.spring.rest.repository.interfaces.PostRepository;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.Collection;
 import java.util.List;
 

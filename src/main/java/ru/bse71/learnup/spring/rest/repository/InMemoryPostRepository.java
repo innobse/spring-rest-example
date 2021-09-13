@@ -8,14 +8,10 @@ import ru.bse71.learnup.spring.rest.model.Post;
 import ru.bse71.learnup.spring.rest.repository.interfaces.PostRepository;
 
 import javax.annotation.PostConstruct;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import static java.util.Arrays.asList;
-import static ru.bse71.learnup.spring.rest.util.PostUtils.generateCommentText;
-import static ru.bse71.learnup.spring.rest.util.PostUtils.generateText;
+import static ru.bse71.learnup.spring.rest.util.PostUtils.*;
 
 /**
  * Created by bse71
@@ -35,33 +31,20 @@ public class InMemoryPostRepository implements PostRepository {
     public void init() {
         posts.put(
                 1,
-                new Post(1, "Пост 1", generateText(), asList(
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText())
-                )));
+                new Post(1, "Пост 1", generateText(), "user", generateCommentsList()));
 
         posts.put(
                 2,
-                new Post(2, "Пост 2", generateText(), asList(
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText())
-                )));
+                new Post(2, "Пост 2", generateText(), "admin", generateCommentsList()));
 
         posts.put(
                 3,
-                new Post(3, "Пост 3", generateText(), asList(
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText()),
-                        new Comment(generateCommentText())
-                )));
+                new Post(3, "Пост 3", generateText(), "user", generateCommentsList()));
     }
 
     @Override
     public Collection<Post> getAllPosts() {
-        return posts.values();
+        return new ArrayList<>(posts.values());
     }
 
     @Override

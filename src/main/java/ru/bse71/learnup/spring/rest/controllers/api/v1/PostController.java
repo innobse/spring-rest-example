@@ -32,7 +32,7 @@ public class PostController {
     }
 
     @GetMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<PostDto> getAllPosts() {
         final Collection<Post> allPosts = service.getAllPosts();
         final List<PostDto> result = new ArrayList<>(allPosts.size());
@@ -44,7 +44,7 @@ public class PostController {
 
     @GetMapping(
             value = "/{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public PostDto getPost(@PathVariable("id") int id) {
         return mapper.toDto(
                 service.get(id));
