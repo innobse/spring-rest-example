@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql:posts
+    username: postgres
+    password: dzVkh
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:/db/changelog/db-changelog-master.yaml
+    enabled: true
+
+logging:
+  level:
+    org.springframework.security: trace

@@ -15,5 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Comment {
 
+    private Integer id;
     private String text;
 }

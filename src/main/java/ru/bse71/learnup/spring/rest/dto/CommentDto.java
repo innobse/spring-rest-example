@@ -20,5 +20,8 @@ import java.util.List;
 public class CommentDto {
 
     @JsonProperty
+    private Integer id;
+
+    @JsonProperty
     private String text;
 }

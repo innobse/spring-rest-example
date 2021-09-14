@@ -2,6 +2,7 @@ package ru.bse71.learnup.spring.rest.mappers;
 
 import org.mapstruct.Mapper;
 import ru.bse71.learnup.spring.rest.dto.PostDto;
+import ru.bse71.learnup.spring.rest.entities.PostEntity;
 import ru.bse71.learnup.spring.rest.model.Post;
 
 /**
@@ -14,4 +15,6 @@ import ru.bse71.learnup.spring.rest.model.Post;
 public interface PostMapper {
     PostDto toDto(Post source);
     Post toModel(PostDto dto);
+    PostEntity toEntity(Post source);
+    Post toModel(PostEntity entity);
 }
